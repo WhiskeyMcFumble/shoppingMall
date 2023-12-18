@@ -8,6 +8,7 @@ namespace shoppingMall
 {
     internal class Restaurant
     {
+        //Ja
         protected string name = "";
         protected string Name { get => name; set => name = value; }
         protected double size { get; set; }
