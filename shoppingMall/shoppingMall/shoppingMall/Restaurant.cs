@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace shoppingMall
 {
+    //Hier könnte ihr Restaurant stehen
     internal class Restaurant
     {
         //Ja
