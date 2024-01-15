@@ -1,28 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "H:\\BTS\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall.csproj": {}
+    "C:\\Users\\Eveline\\Source\\Repos\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall.csproj": {}
   },
   "projects": {
-    "H:\\BTS\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall.csproj": {
+    "C:\\Users\\Eveline\\Source\\Repos\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\BTS\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall.csproj",
+        "projectUniqueName": "C:\\Users\\Eveline\\Source\\Repos\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall.csproj",
         "projectName": "shoppingMall",
-        "projectPath": "H:\\BTS\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall.csproj",
-        "packagesPath": "C:\\Users\\mathias.jungkind\\.nuget\\packages\\",
-        "outputPath": "H:\\BTS\\shoppingMall\\shoppingMall\\shoppingMall\\obj\\",
+        "projectPath": "C:\\Users\\Eveline\\Source\\Repos\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall.csproj",
+        "packagesPath": "C:\\Users\\Eveline\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Eveline\\Source\\Repos\\shoppingMall\\shoppingMall\\shoppingMall\\shoppingMall\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mathias.jungkind\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Eveline\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net6.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -49,7 +45,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -61,7 +58,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.113\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
