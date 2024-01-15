@@ -7,6 +7,12 @@ namespace shoppingMall
             InitializeComponent();
         }
 
+
+        //Shop gameStore = new Shop();
+
+
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -40,6 +46,24 @@ namespace shoppingMall
         private void capital_label_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void game_store_label_Click(object sender, EventArgs e)
+
+        {
+            string label = game_store_label.Text;
+            openPage(label);
+        }
+
+        private void jupiter_label_Click(object sender, EventArgs e)
+        {
+            string label = jupiter_label.Text;
+            openPage(label);
+        }
+        public void openPage(string name)
+        {
+            DetailScreen f2 = new DetailScreen(name);
+            f2.ShowDialog();
         }
     }
 }

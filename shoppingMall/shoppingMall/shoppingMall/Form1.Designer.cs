@@ -245,6 +245,7 @@
             game_store_label.TabIndex = 0;
             game_store_label.Text = "Game Store";
             game_store_label.UseVisualStyleBackColor = true;
+            game_store_label.Click += game_store_label_Click;
             // 
             // panel2
             // 
@@ -266,6 +267,7 @@
             jupiter_label.TabIndex = 0;
             jupiter_label.Text = "Jupiter";
             jupiter_label.UseVisualStyleBackColor = true;
+            jupiter_label.Click += jupiter_label_Click;
             // 
             // panel3
             // 
@@ -386,7 +388,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Crimson;
-            ClientSize = new Size(1121, 648);
+            ClientSize = new Size(1132, 648);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(v);
             Margin = new Padding(3, 4, 3, 4);
