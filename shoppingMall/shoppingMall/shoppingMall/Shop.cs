@@ -30,7 +30,7 @@ namespace shoppingMall
             this.averageVisitorCount = averageVisitorCount;
         }
 
-#cool
+#cool #2cool4school
 
     }
 }
