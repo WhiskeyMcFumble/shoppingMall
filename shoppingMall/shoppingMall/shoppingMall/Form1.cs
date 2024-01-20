@@ -53,21 +53,20 @@ namespace shoppingMall
 
         {
             string label = game_store_label.Text;
-            DetailScreen f2 = new DetailScreen(gameStore);
-            f2.ShowDialog();
+            openPage(gameStore);
         }
 
         private void jupiter_label_Click(object sender, EventArgs e)
         {
             string label = jupiter_label.Text;
-            DetailScreen f2 = new DetailScreen(jupiter);
-            f2.ShowDialog();
+            openPage(jupiter);
         }
-        /*
+        
         public void openPage(Shop shop)
         {
-           
+            DetailScreen f2 = new DetailScreen(shop);
+            f2.ShowDialog();
         }
-        */
+        
     }
 }
