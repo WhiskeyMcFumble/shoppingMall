@@ -166,6 +166,7 @@
             Controls.Add(detail_name);
             Name = "DetailScreen";
             Text = "DetailScreen";
+            Load += DetailScreen_Load;
             ResumeLayout(false);
             PerformLayout();
         }

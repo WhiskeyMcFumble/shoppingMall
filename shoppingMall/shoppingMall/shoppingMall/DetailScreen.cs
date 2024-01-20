@@ -14,10 +14,14 @@ namespace shoppingMall
     public partial class DetailScreen : Form
     {
 
-        public DetailScreen(string name)
+        public DetailScreen(Shop shop)
         {
             InitializeComponent();
-            detail_name.Text = name;
+            detail_name.Text = shop.GetName();
+            size.Text = shop.GetSize().ToString();
+            category.Text = shop.GetCategory();
+            rating.Text = shop.GetRating().ToString();
+            capital.Text = shop.GetCapital().ToString();
 
         }
 
@@ -28,6 +32,9 @@ namespace shoppingMall
 
         }
 
+        private void DetailScreen_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

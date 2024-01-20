@@ -8,7 +8,8 @@ namespace shoppingMall
         }
 
 
-        //Shop gameStore = new Shop();
+        Shop gameStore = new Shop("Game Store", 200, "store", 30, true, 300, 4,5);
+        Shop jupiter = new Shop("Jupiter", 200, "store", 30, true, 300, 4, 5);
 
 
 
@@ -52,18 +53,21 @@ namespace shoppingMall
 
         {
             string label = game_store_label.Text;
-            openPage(label);
+            DetailScreen f2 = new DetailScreen(gameStore);
+            f2.ShowDialog();
         }
 
         private void jupiter_label_Click(object sender, EventArgs e)
         {
             string label = jupiter_label.Text;
-            openPage(label);
-        }
-        public void openPage(string name)
-        {
-            DetailScreen f2 = new DetailScreen(name);
+            DetailScreen f2 = new DetailScreen(jupiter);
             f2.ShowDialog();
         }
+        /*
+        public void openPage(Shop shop)
+        {
+           
+        }
+        */
     }
 }
