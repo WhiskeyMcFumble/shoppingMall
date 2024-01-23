@@ -13,7 +13,6 @@ namespace shoppingMall
 {
     public partial class DetailScreen : Form
     {
-
         public DetailScreen(Shop shop)
         {
             InitializeComponent();
@@ -22,10 +21,7 @@ namespace shoppingMall
             category.Text = shop.GetCategory();
             rating.Text = shop.GetRating().ToString();
             capital.Text = shop.GetCapital().ToString();
-
         }
-
-
 
         private void name_store_Click(object sender, EventArgs e)
         {
