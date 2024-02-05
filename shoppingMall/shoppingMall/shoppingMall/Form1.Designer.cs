@@ -28,115 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            flowLayoutPanel2 = new FlowLayoutPanel();
+            flowPanel = new FlowLayoutPanel();
             panel1 = new Panel();
-            stores_button = new Button();
+            store_button = new Button();
             panel2 = new Panel();
             workers_button = new Button();
-            panel3 = new Panel();
-            events_button = new Button();
-            flowLayoutPanel2.SuspendLayout();
+            panel = new FlowLayoutPanel();
+            flowPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // flowLayoutPanel2
+            // flowPanel
             // 
-            flowLayoutPanel2.Controls.Add(panel1);
-            flowLayoutPanel2.Controls.Add(panel2);
-            flowLayoutPanel2.Controls.Add(panel3);
-            flowLayoutPanel2.Location = new Point(166, 219);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(759, 230);
-            flowLayoutPanel2.TabIndex = 4;
+            flowPanel.Controls.Add(panel1);
+            flowPanel.Controls.Add(panel2);
+            flowPanel.Location = new Point(154, 140);
+            flowPanel.Name = "flowPanel";
+            flowPanel.Size = new Size(621, 253);
+            flowPanel.TabIndex = 0;
             // 
             // panel1
             // 
-            panel1.BackColor = Color.LavenderBlush;
-            panel1.Controls.Add(stores_button);
+            panel1.Controls.Add(store_button);
             panel1.Location = new Point(3, 3);
-            panel1.Margin = new Padding(3, 3, 20, 30);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(100);
-            panel1.Size = new Size(228, 196);
+            panel1.Size = new Size(295, 192);
             panel1.TabIndex = 0;
             // 
-            // stores_button
+            // store_button
             // 
-            stores_button.Location = new Point(47, 79);
-            stores_button.Name = "stores_button";
-            stores_button.Size = new Size(128, 29);
-            stores_button.TabIndex = 0;
-            stores_button.Text = "Geschäfte";
-            stores_button.UseVisualStyleBackColor = true;
-            stores_button.Click += stores_button_Click;
+            store_button.Location = new Point(114, 85);
+            store_button.Name = "store_button";
+            store_button.Size = new Size(75, 23);
+            store_button.TabIndex = 0;
+            store_button.Text = "Geschäfte";
+            store_button.UseVisualStyleBackColor = true;
+            store_button.Click += store_button_Click;
             // 
             // panel2
             // 
-            panel2.BackColor = Color.LavenderBlush;
             panel2.Controls.Add(workers_button);
-            panel2.Location = new Point(254, 3);
-            panel2.Margin = new Padding(3, 3, 20, 30);
+            panel2.Location = new Point(304, 3);
             panel2.Name = "panel2";
-            panel2.Padding = new Padding(100);
-            panel2.Size = new Size(228, 196);
+            panel2.Size = new Size(295, 192);
             panel2.TabIndex = 1;
             // 
             // workers_button
             // 
-            workers_button.Location = new Point(49, 79);
+            workers_button.Location = new Point(118, 86);
             workers_button.Name = "workers_button";
-            workers_button.Size = new Size(128, 29);
+            workers_button.Size = new Size(75, 23);
             workers_button.TabIndex = 0;
             workers_button.Text = "Mitarbeiter";
             workers_button.UseVisualStyleBackColor = true;
+            workers_button.Click += workers_button_Click_1;
             // 
-            // panel3
+            // panel
             // 
-            panel3.BackColor = Color.LavenderBlush;
-            panel3.Controls.Add(events_button);
-            panel3.Location = new Point(505, 3);
-            panel3.Margin = new Padding(3, 3, 20, 30);
-            panel3.Name = "panel3";
-            panel3.Padding = new Padding(100);
-            panel3.Size = new Size(228, 196);
-            panel3.TabIndex = 2;
-            // 
-            // events_button
-            // 
-            events_button.Location = new Point(57, 79);
-            events_button.Name = "events_button";
-            events_button.Size = new Size(128, 29);
-            events_button.TabIndex = 0;
-            events_button.Text = "Events";
-            events_button.UseVisualStyleBackColor = true;
+            panel.Location = new Point(30, 23);
+            panel.Name = "panel";
+            panel.Size = new Size(917, 100);
+            panel.TabIndex = 1;
+            panel.Paint += panel_Paint;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Crimson;
-            ClientSize = new Size(1132, 648);
-            Controls.Add(flowLayoutPanel2);
-            Margin = new Padding(3, 4, 3, 4);
+            ClientSize = new Size(990, 486);
+            Controls.Add(panel);
+            Controls.Add(flowPanel);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
-            flowLayoutPanel2.ResumeLayout(false);
+            flowPanel.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel flowPanel;
         private Panel panel1;
-        private Button stores_button;
         private Panel panel2;
+        private Button store_button;
         private Button workers_button;
-        private Panel panel3;
-        private Button events_button;
+        private FlowLayoutPanel panel;
     }
 }
