@@ -50,11 +50,13 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.LavenderBlush;
             panel1.Controls.Add(store_button);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(295, 192);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // store_button
             // 
@@ -68,6 +70,7 @@
             // 
             // panel2
             // 
+            panel2.BackColor = Color.LavenderBlush;
             panel2.Controls.Add(workers_button);
             panel2.Location = new Point(304, 3);
             panel2.Name = "panel2";
@@ -76,9 +79,9 @@
             // 
             // workers_button
             // 
-            workers_button.Location = new Point(118, 86);
+            workers_button.Location = new Point(104, 85);
             workers_button.Name = "workers_button";
-            workers_button.Size = new Size(75, 23);
+            workers_button.Size = new Size(88, 23);
             workers_button.TabIndex = 0;
             workers_button.Text = "Mitarbeiter";
             workers_button.UseVisualStyleBackColor = true;
@@ -88,7 +91,7 @@
             // 
             panel.Location = new Point(30, 23);
             panel.Name = "panel";
-            panel.Size = new Size(917, 100);
+            panel.Size = new Size(917, 69);
             panel.TabIndex = 1;
             panel.Paint += panel_Paint;
             // 

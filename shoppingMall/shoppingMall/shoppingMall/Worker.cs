@@ -31,8 +31,5 @@ namespace shoppingMall
             this.rating = rating;
             this.presentToday = presentToday;
         }
-
-        
-
     }
 }

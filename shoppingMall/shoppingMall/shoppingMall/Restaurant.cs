@@ -6,22 +6,40 @@ using System.Threading.Tasks;
 
 namespace shoppingMall
 {
-    //Hier könnte ihr Restaurant stehen
-    internal class Restaurant
+    //Hier kÃ¶nnte ihr Restaurant stehen
+    internal class Restaurant : Shop
     {
-        //Ja
-        protected string name = "";
-        protected string Name { get => name; set => name = value; }
-        protected double size { get; set; }
-        protected string category { get => category; set => category = value; }
-        protected double averageVisitorRevenue { get; set; }
-        protected bool status { get; set; }
-        protected double capital { get; set; }
-        protected int rating { get; set; }
+        public override string GetName()
+        {
+            return name;
+        }
+        public override double GetSize()
+        {
+            return size;
+        }
+
+        public override bool GetStatus()
+        {
+            return status;
+        }
+
+        public override string GetCategory()
+        {
+            return category;
+        }
+        public override decimal GetCapital()
+        {
+            return capital;
+        }
+        public override double GetRating()
+        {
+            return rating;
+        }
+
         protected bool healthInspection { get; set; }
         protected int stars { get; set; }
 
-        public Restaurant(string name, double size, string category, double averageVisitorRevenue, bool status, double capital, int rating, bool healthInspection, int stars)
+        public Restaurant(string name, double size, string category, double averageVisitorRevenue, bool status, decimal capital, double rating, double averageVisitorCount, bool healthInspection, int stars)
         {
             this.name = name;
             this.size = size;
@@ -30,6 +48,7 @@ namespace shoppingMall
             this.status = status;
             this.capital = capital;
             this.rating = rating;
+            this.averageVisitorCount = averageVisitorCount;
             this.healthInspection = healthInspection;
             this.stars = stars;
         }

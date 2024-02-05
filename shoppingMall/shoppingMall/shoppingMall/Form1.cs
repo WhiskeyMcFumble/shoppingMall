@@ -1,18 +1,26 @@
+using System.Data;
+using System.Drawing;
+using System.Data;
+using System.Data.SqlClient;
+
 namespace shoppingMall
 {
     public partial class Form1 : Form
     {
 
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
         public Form1()
         {
             InitializeComponent();
             Menu menu = new Menu();
 
-            //Retrieve the FlowLayoutPanel with labels from the menu class
+
             FlowLayoutPanel menuFlowLayoutPanel = menu.createMenu();
 
-            // Add the menu FlowLayoutPanel to the FlowLayoutPanel of this page
             panel.Controls.Add(menuFlowLayoutPanel);
 
 
@@ -48,6 +56,11 @@ namespace shoppingMall
             WorkersPage workersOverview = new WorkersPage();
             this.Hide();
             workersOverview.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

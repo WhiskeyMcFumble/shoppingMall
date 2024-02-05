@@ -16,5 +16,11 @@ namespace shoppingMall
         {
             InitializeComponent();
         }
+
+        private void WorkersPage_Load(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            panel.Controls.Add(menu.createMenu());
+        }
     }
 }

@@ -37,12 +37,12 @@ namespace shoppingMall
         public FlowLayoutPanel createMenu()
         {
 
-
+            flowPannel.Size = new System.Drawing.Size(700, 32);
             Label capitalLabel = new Label();
             Label capitalName = new Label();
             Label ratingName = new Label();
             capitalName.Text = "Kapital:";
-            ratingName.Text = "Rating";
+            ratingName.Text = "Rating:";
             capitalLabel.Text = this.capital.ToString();
             Label ratingLabel = new Label();
             ratingLabel.Text = this.rating.ToString();
@@ -58,7 +58,6 @@ namespace shoppingMall
             flowPannel.Controls.Add(ratingName);
             flowPannel.Controls.Add(ratingLabel);
             flowPannel.Controls.Add(editButton);
-            //flowPannel.Controls.Add(editButton);
             return flowPannel;
         }
 

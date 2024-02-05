@@ -28,12 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "WorkersPage";
+            panel = new FlowLayoutPanel();
+            SuspendLayout();
+            // 
+            // panel
+            // 
+            panel.Location = new Point(31, 32);
+            panel.Name = "panel";
+            panel.Size = new Size(735, 82);
+            panel.TabIndex = 0;
+            // 
+            // WorkersPage
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(panel);
+            Name = "WorkersPage";
+            Text = "WorkersPage";
+            Load += WorkersPage_Load;
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private FlowLayoutPanel panel;
     }
 }

@@ -6,57 +6,39 @@ using System.Threading.Tasks;
 
 namespace shoppingMall
 {
-    public class Shop
+    abstract class Shop
     {
-        private string name = "";
+        protected string name = "";
         protected string Name { get => name; set => name = value; }
-        private double size;
+        protected double size;
         protected string category;
         protected double averageVisitorRevenue { get; set; }
         protected bool status { get; set; }
-        protected double capital { get; set; }
-        protected int rating { get; set; }
-        protected int averageVisitorCount { get; set; }
+        protected decimal capital { get; set; }
+        protected double rating { get; set; }
+        protected double averageVisitorCount { get; set; }
         protected double Size { get => size; set => size = value; }
 
-        public string GetName()
-        {
-            return name;
-        }
-        public double GetSize()
-        {
-            return size;
-        }
+        public abstract string GetName();
+        public abstract double GetSize();
 
-        public bool GetStatus()
-        {
-            return status;
-        }
+        public abstract bool GetStatus();
 
-        public string GetCategory()
-        {
-            return category;
-        }
-        public double GetCapital()
-        {
-            return capital;
-        }
-        public int GetRating()
-        {
-            return rating;
-        }
+        public abstract string GetCategory();
+        public abstract decimal GetCapital();
+        public abstract double GetRating();
 
-        public Shop(string name, double size, string category, double averageVisitorRevenue, bool status, double capital, int rating, int averageVisitorCount)
-        {
-            this.name = name;
-            this.size = size;
-            this.category = category;
-            this.averageVisitorCount = averageVisitorCount;
-            this.status = status;
-            this.capital = capital;
-            this.rating = rating;
-            this.averageVisitorCount = averageVisitorCount;
-        }
-
+        /*       public Shop(string name, double size, string category, double averageVisitorRevenue, bool status, double capital, int rating, int averageVisitorCount)
+               {
+                   this.name = name;
+                   this.size = size;
+                   this.category = category;
+                   this.averageVisitorCount = averageVisitorCount;
+                   this.status = status;
+                   this.capital = capital;
+                   this.rating = rating;
+                   this.averageVisitorCount = averageVisitorCount;
+               }
+       */
     }
 }
