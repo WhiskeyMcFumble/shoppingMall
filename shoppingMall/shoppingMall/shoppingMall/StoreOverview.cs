@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace shoppingMall
 {
-    public partial class StoreOverview : Form
+    public partial class StoreOverview : Form, IPanelCreator
     {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Eveline\\source\\repos\\shoppingMall2\\shoppingMall\\shoppingMall\\shoppingMall\\Database1.mdf;Integrated Security=True");
         SqlCommand cmd;
@@ -127,11 +127,9 @@ namespace shoppingMall
             FlowLayoutPanel menuFlowLayoutPanel = menu.createMenu();
             menu.EditButtonClicked += EditButton_Click;
             panel.Controls.Add(menuFlowLayoutPanel);
-           createPanels(list);
+            createPanels(list);
 
-          
-
-
+  
         }
 
         private void EditButton_Click(object sender, EventArgs e)
@@ -150,13 +148,29 @@ namespace shoppingMall
                 Button button = new Button();
                 button.Text = shop.GetName();
                 button.Size = new System.Drawing.Size(100, 100);
-                //button.Click += (sender, e) => MessageBox.Show("Button " + (i + 1) + " clicked");
+                button.Click += (sender, e) => openPage(shop, sender, e);
                 panelStore.Controls.Add(button);
                 formPanel.Controls.Add(panelStore);
             }
         }
+        /*
+        public void CreatePanels<T>(List<T> items, Panel formPanel) where T : INameable
+        {
+            foreach (T item in items)
+            {
+                Panel panelItem = new Panel();
+                panelItem.Size = new System.Drawing.Size(200, 150);
+                Button button = new Button();
+                button.Text = item.GetName();
+                button.Size = new System.Drawing.Size(100, 100);
+                button.Click += (sender, e) => openPage(item, sender, e);
+                panelItem.Controls.Add(button);
+                formPanel.Controls.Add(panelItem);
+            }
+}
+        */
 
-        private void StoreOverview_Load(object sender, EventArgs e)
+private void StoreOverview_Load(object sender, EventArgs e)
         {
 
         }
@@ -167,19 +181,13 @@ namespace shoppingMall
 
         }
 
+        internal void openPage(Shop shop, object sender, EventArgs e)
+        {
 
-
-        /* private void jupiter_label_Click(object sender, EventArgs e)
-         {
-             string label = jupiter_label.Text;
-             openPage(jupiter);
-         }
-        */
-       // public void openPage(Shop shop)
-        //{
-        //    DetailScreen f2 = new DetailScreen(shop);
-          //  f2.ShowDialog();
-       // }
+            DetailScreen f2 = new DetailScreen(shop);
+            this.Hide();
+            f2.ShowDialog();
+        }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {

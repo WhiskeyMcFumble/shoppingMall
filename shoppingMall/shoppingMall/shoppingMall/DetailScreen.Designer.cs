@@ -37,6 +37,7 @@
             category = new Label();
             capital = new Label();
             rating = new Label();
+            delete_button = new Button();
             SuspendLayout();
             // 
             // detail_name
@@ -126,12 +127,23 @@
             rating.TabIndex = 10;
             rating.Text = "label1";
             // 
+            // delete_button
+            // 
+            delete_button.Location = new Point(949, 57);
+            delete_button.Name = "delete_button";
+            delete_button.Size = new Size(94, 29);
+            delete_button.TabIndex = 11;
+            delete_button.Text = "Delete";
+            delete_button.UseVisualStyleBackColor = true;
+            delete_button.Click += delete_button_Click;
+            // 
             // DetailScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lavender;
             ClientSize = new Size(1193, 762);
+            Controls.Add(delete_button);
             Controls.Add(rating);
             Controls.Add(capital);
             Controls.Add(category);
@@ -162,5 +174,6 @@
         private Label category;
         private Label capital;
         private Label rating;
+        private Button delete_button;
     }
 }

@@ -29,21 +29,34 @@
         private void InitializeComponent()
         {
             panel = new FlowLayoutPanel();
+            panelWorkers = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // panel
             // 
-            panel.Location = new Point(31, 32);
+            panel.Location = new Point(35, 43);
+            panel.Margin = new Padding(3, 4, 3, 4);
             panel.Name = "panel";
-            panel.Size = new Size(735, 82);
+            panel.Size = new Size(840, 109);
             panel.TabIndex = 0;
+            panel.Paint += panel_Paint;
+            // 
+            // panelWorkers
+            // 
+            panelWorkers.Location = new Point(46, 202);
+            panelWorkers.Name = "panelWorkers";
+            panelWorkers.Size = new Size(829, 294);
+            panelWorkers.TabIndex = 1;
+            panelWorkers.Paint += flowLayoutPanel1_Paint;
             // 
             // WorkersPage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
+            Controls.Add(panelWorkers);
             Controls.Add(panel);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "WorkersPage";
             Text = "WorkersPage";
             Load += WorkersPage_Load;
@@ -53,5 +66,6 @@
         #endregion
 
         private FlowLayoutPanel panel;
+        private FlowLayoutPanel panelWorkers;
     }
 }

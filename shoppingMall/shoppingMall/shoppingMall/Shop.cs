@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace shoppingMall
 {
-    abstract class Shop
+    public abstract class Shop
     {
         protected string name = "";
         protected string Name { get => name; set => name = value; }

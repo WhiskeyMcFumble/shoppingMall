@@ -6,21 +6,28 @@ using System.Threading.Tasks;
 
 namespace shoppingMall
 {
-    internal class Worker
+    public class Worker
     {
         protected string name = "";
         protected string Name { get => name; set => name = value; }
         protected int age { get; set; }
-        protected int socialSecurityNumber { get; set; }
+        protected string socialSecurityNumber { get; set; }
+
         protected string workField = "";
         protected string WorkField { get => workField; set => workField = value; }
         protected int weekHours { get; set; }
         protected string position = "";
         protected string Position { get => position; set => position = value;}
-        protected int rating { get; set; }
+        protected double rating { get; set; }
         protected bool presentToday { get; set; }
 
-        public Worker(string name, int age, int socialSecurityNumber, string workField, int weekHours, string position, int rating, bool presentToday)
+
+        public string GetName()
+        {
+            return this.name;
+        }
+
+        public Worker(string name, int age, string socialSecurityNumber, string workField, int weekHours, string position, double rating)
         {
             this.name = name;
             this.age = age;

@@ -49,5 +49,9 @@ namespace shoppingMall
             this.rating = rating;
             this.averageVisitorCount = averageVisitorCount;
         }
+
+        public Techstore()
+        {
+        }
     }
 }
