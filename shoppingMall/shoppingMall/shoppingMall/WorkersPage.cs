@@ -15,6 +15,7 @@ namespace shoppingMall
     public partial class WorkersPage : Form
     {
 
+      
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Eveline\\source\\repos\\shoppingMall2\\shoppingMall\\shoppingMall\\shoppingMall\\Database1.mdf;Integrated Security=True");
         SqlCommand cmd;
         DataTable dt2;
@@ -34,7 +35,7 @@ namespace shoppingMall
             con.Close();
             dt2 = ds.Tables["testTable"];
 
-           
+            
 
             for (int i = 0; i < dt2.Rows.Count; i++)
             {
@@ -42,8 +43,9 @@ namespace shoppingMall
             }
 
             createPanels(listWorker);
-        }
 
+
+        }
 
         private void createPanels(List<Worker> list)
         {
@@ -62,7 +64,7 @@ namespace shoppingMall
         }
         internal void openPage(Worker worker, object sender, EventArgs e)
         {
-
+            FormNavigationManager.SetPreviousForm(this);
             DetailScreen f2 = new DetailScreen(worker);
             this.Hide();
             f2.ShowDialog();

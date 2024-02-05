@@ -12,9 +12,12 @@ using System.Xml.Linq;
 
 namespace shoppingMall
 {
-    
+
     public partial class DetailScreen : Form
     {
+       
+        public IBackButton backButtonManager;
+
         public bool isShopDetail;
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Eveline\\source\\repos\\shoppingMall2\\shoppingMall\\shoppingMall\\shoppingMall\\Database1.mdf;Integrated Security=True");
         SqlCommand cmd;
@@ -35,12 +38,25 @@ namespace shoppingMall
             category.Text = shop.GetCategory();
             rating.Text = shop.GetRating().ToString();
             capital.Text = shop.GetCapital().ToString();
+
             isShopDetail = true;
+
+
+
         }
+        public void SetBackButtonManager(IBackButton backButtonManager)
+        {
+            this.backButtonManager = backButtonManager;
+        }
+        private void backButton_Click(object sender, EventArgs e)
+        {
+           // FormNavigationManager.GoBack(this);
+        }
+
         public DetailScreen(Worker worker)
         {
             InitializeComponent();
-            
+
             size_label.Text = "ID";
             category_label.Text = "Bewertung";
             capital_store_label.Text = "Alter";
@@ -88,7 +104,15 @@ namespace shoppingMall
                     store.ShowDialog();
                 }
             }
-            
+
+        }
+
+        private void backButton_Click_1(object sender, EventArgs e)
+        {
+
+            Form previousForm = FormNavigationManager.GetPreviousForm(); 
+            previousForm.Show(); 
+            this.Close();
         }
     }
 }

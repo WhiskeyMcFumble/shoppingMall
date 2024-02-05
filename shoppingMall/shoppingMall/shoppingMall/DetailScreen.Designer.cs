@@ -38,13 +38,14 @@
             capital = new Label();
             rating = new Label();
             delete_button = new Button();
+            backButton = new Button();
             SuspendLayout();
             // 
             // detail_name
             // 
             detail_name.AutoSize = true;
             detail_name.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            detail_name.Location = new Point(78, 62);
+            detail_name.Location = new Point(74, 127);
             detail_name.Name = "detail_name";
             detail_name.Size = new Size(82, 35);
             detail_name.TabIndex = 0;
@@ -55,7 +56,7 @@
             // 
             size_label.AutoSize = true;
             size_label.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            size_label.Location = new Point(78, 144);
+            size_label.Location = new Point(74, 209);
             size_label.Name = "size_label";
             size_label.Size = new Size(73, 30);
             size_label.TabIndex = 1;
@@ -65,7 +66,7 @@
             // 
             category_label.AutoSize = true;
             category_label.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            category_label.Location = new Point(78, 199);
+            category_label.Location = new Point(74, 264);
             category_label.Name = "category_label";
             category_label.Size = new Size(107, 30);
             category_label.TabIndex = 2;
@@ -75,7 +76,7 @@
             // 
             capital_store_label.AutoSize = true;
             capital_store_label.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            capital_store_label.Location = new Point(78, 265);
+            capital_store_label.Location = new Point(74, 330);
             capital_store_label.Name = "capital_store_label";
             capital_store_label.Size = new Size(78, 30);
             capital_store_label.TabIndex = 4;
@@ -85,7 +86,7 @@
             // 
             rating_store_label.AutoSize = true;
             rating_store_label.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            rating_store_label.Location = new Point(78, 323);
+            rating_store_label.Location = new Point(74, 388);
             rating_store_label.Name = "rating_store_label";
             rating_store_label.Size = new Size(74, 30);
             rating_store_label.TabIndex = 5;
@@ -94,7 +95,7 @@
             // size
             // 
             size.AutoSize = true;
-            size.Location = new Point(275, 152);
+            size.Location = new Point(271, 217);
             size.Name = "size";
             size.Size = new Size(50, 20);
             size.TabIndex = 6;
@@ -103,7 +104,7 @@
             // category
             // 
             category.AutoSize = true;
-            category.Location = new Point(275, 207);
+            category.Location = new Point(271, 272);
             category.Name = "category";
             category.Size = new Size(50, 20);
             category.TabIndex = 7;
@@ -112,7 +113,7 @@
             // capital
             // 
             capital.AutoSize = true;
-            capital.Location = new Point(275, 265);
+            capital.Location = new Point(271, 330);
             capital.Name = "capital";
             capital.Size = new Size(50, 20);
             capital.TabIndex = 9;
@@ -121,7 +122,7 @@
             // rating
             // 
             rating.AutoSize = true;
-            rating.Location = new Point(275, 331);
+            rating.Location = new Point(271, 396);
             rating.Name = "rating";
             rating.Size = new Size(50, 20);
             rating.TabIndex = 10;
@@ -137,12 +138,23 @@
             delete_button.UseVisualStyleBackColor = true;
             delete_button.Click += delete_button_Click;
             // 
+            // backButton
+            // 
+            backButton.Location = new Point(74, 57);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(94, 29);
+            backButton.TabIndex = 12;
+            backButton.Text = "< zurück";
+            backButton.UseVisualStyleBackColor = true;
+            backButton.Click += backButton_Click_1;
+            // 
             // DetailScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lavender;
             ClientSize = new Size(1193, 762);
+            Controls.Add(backButton);
             Controls.Add(delete_button);
             Controls.Add(rating);
             Controls.Add(capital);
@@ -175,5 +187,6 @@
         private Label capital;
         private Label rating;
         private Button delete_button;
+        private Button backButton;
     }
 }
