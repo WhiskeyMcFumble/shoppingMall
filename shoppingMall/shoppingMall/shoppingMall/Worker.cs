@@ -27,6 +27,36 @@ namespace shoppingMall
             return this.name;
         }
 
+        public int GetAge()
+        {
+            return this.age;
+        }
+
+        public string GetSsN()
+        {
+            return this.socialSecurityNumber;
+        }
+        public string GetSWorkfield()
+        {
+            return this.workField;
+        }
+
+        public int GetWeekHours()
+        {
+            return this.weekHours;
+        }
+
+        public string GetPosition()
+        {
+            return this.position;
+        }
+
+        public double GetRating()
+        {
+            return this.rating;
+        }
+
+
         public Worker(string name, int age, string socialSecurityNumber, string workField, int weekHours, string position, double rating)
         {
             this.name = name;

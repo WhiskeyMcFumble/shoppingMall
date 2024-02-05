@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,6 @@ namespace shoppingMall
     public partial class WorkersPage : Form
     {
 
-      
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Eveline\\source\\repos\\shoppingMall2\\shoppingMall\\shoppingMall\\shoppingMall\\Database1.mdf;Integrated Security=True");
         SqlCommand cmd;
         DataTable dt2;
@@ -24,21 +24,26 @@ namespace shoppingMall
         public WorkersPage()
         {
             InitializeComponent();
-           ;
+           
             List<Worker> listWorker = new List<Worker>();
             con.Open();
-            cmd = new SqlCommand("select * from Shop", con);
+            cmd = new SqlCommand("select * from Worker", con);
             adapter = new SqlDataAdapter(cmd);
             ds = new DataSet();
             adapter.Fill(ds, "testTable");
             con.Close();
+            dt2 = ds.Tables["testTable"];
+
+           
 
             for (int i = 0; i < dt2.Rows.Count; i++)
             {
-                listWorker.Add(new Worker(dt2.Rows[i]["name"].ToString(), (int)dt2.Rows[i]["age"], dt2.Rows[i]["socialSecurityNumber"].ToString(), dt2.Rows[i]["workField"].ToString(), (int)dt2.Rows[i]["weekHours"], dt.Rows[i]["position"].ToString(), (double)dt2.Rows[i]["rating"]));
+                listWorker.Add(new Worker(dt2.Rows[i]["name"].ToString(), (int)dt2.Rows[i]["age"], dt2.Rows[i]["socialSecurityNumber"].ToString(), dt2.Rows[i]["workField"].ToString(), (int)dt2.Rows[i]["weekHours"], dt2.Rows[i]["position"].ToString(), (double)dt2.Rows[i]["rating"]));
             }
-            
+
+            createPanels(listWorker);
         }
+
 
         private void createPanels(List<Worker> list)
         {
