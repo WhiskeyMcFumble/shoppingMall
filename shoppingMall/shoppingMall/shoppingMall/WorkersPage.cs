@@ -20,9 +20,6 @@ namespace shoppingMall
         public WorkersPage()
         {
             InitializeComponent();
-
-
-         
             Menu menu = new Menu();
             List<Worker> list = menu.listWorkers();
             FlowLayoutPanel menuFlowLayoutPanel = menu.createMenu();

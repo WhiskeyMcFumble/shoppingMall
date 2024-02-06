@@ -28,46 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            formPanel = new FlowLayoutPanel();
-            schmitt_label = new Button();
+            addButton = new Button();
             panel = new FlowLayoutPanel();
+            formPanel = new FlowLayoutPanel();
             SuspendLayout();
             // 
-            // formPanel
+            // addButton
             // 
-            formPanel.Location = new Point(79, 169);
-            formPanel.Margin = new Padding(3, 2, 3, 2);
-            formPanel.Name = "formPanel";
-            formPanel.Size = new Size(757, 380);
-            formPanel.TabIndex = 2;
-            formPanel.Paint += formPanel_Paint;
-            // 
-            // schmitt_label
-            // 
-            schmitt_label.Location = new Point(66, 34);
-            schmitt_label.Margin = new Padding(3, 2, 3, 2);
-            schmitt_label.Name = "schmitt_label";
-            schmitt_label.Size = new Size(82, 22);
-            schmitt_label.TabIndex = 0;
-            schmitt_label.Text = "Schmitt";
-            schmitt_label.UseVisualStyleBackColor = true;
+            addButton.Location = new Point(941, 41);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(94, 29);
+            addButton.TabIndex = 0;
+            addButton.Text = "Add";
+            addButton.UseVisualStyleBackColor = true;
+            addButton.Click += addButton_Click;
             // 
             // panel
             // 
-            panel.Location = new Point(79, 39);
+            panel.Location = new Point(24, 41);
             panel.Name = "panel";
-            panel.Size = new Size(757, 95);
-            panel.TabIndex = 3;
-            panel.Paint += flowLayoutPanel2_Paint;
+            panel.Size = new Size(911, 125);
+            panel.TabIndex = 1;
+            // 
+            // formPanel
+            // 
+            formPanel.Location = new Point(24, 226);
+            formPanel.Name = "formPanel";
+            formPanel.Size = new Size(911, 235);
+            formPanel.TabIndex = 2;
+            formPanel.Paint += formPanel_Paint_1;
             // 
             // StoreOverview
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(946, 580);
-            Controls.Add(panel);
+            ClientSize = new Size(1081, 773);
             Controls.Add(formPanel);
-            Margin = new Padding(3, 2, 3, 2);
+            Controls.Add(panel);
+            Controls.Add(addButton);
             Name = "StoreOverview";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "StoreOverview";
@@ -77,8 +75,8 @@
 
         #endregion
 
-        private FlowLayoutPanel formPanel;
-        private Button schmitt_label;
+        private Button addButton;
         private FlowLayoutPanel panel;
+        private FlowLayoutPanel formPanel;
     }
 }

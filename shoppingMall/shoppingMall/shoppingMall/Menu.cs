@@ -188,9 +188,9 @@ namespace shoppingMall
             capitalLabel.Text = calculateTotalCapital(listShop(), listWorkers()).ToString();
             Label ratingLabel = new Label();
             ratingLabel.Text = calculateTotalRating(listShop(), listWorkers()).ToString();
-            Button editButton = new Button();
-            editButton.Text = "Edit";
-            editButton.Click += EditButton_Click;
+           // Button editButton = new Button();
+            //editButton.Text = "Add";
+            //editButton.Click += EditButton_Click;
             
 
 
@@ -199,26 +199,20 @@ namespace shoppingMall
             flowPannel.Controls.Add(capitalLabel);
             flowPannel.Controls.Add(ratingName);
             flowPannel.Controls.Add(ratingLabel);
-            flowPannel.Controls.Add(editButton);
+           // flowPannel.Controls.Add(editButton);
             return flowPannel;
         }
 
 
         public void EditButton_Click(object sender, EventArgs e)
         {
-            EditButtonClicked?.Invoke(this, EventArgs.Empty);
-            Button deleteButton = new Button();
-            deleteButton.Text = "Delete";
-            deleteButton.Click += deleteButton_Click;
-            flowPannel.Controls[0].Controls.Add(deleteButton);
 
+
+            MessageBox.Show("a");
 
 
         }
-        public void deleteButton_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         public double calculateShopCapital(List<Shop> list)
         {

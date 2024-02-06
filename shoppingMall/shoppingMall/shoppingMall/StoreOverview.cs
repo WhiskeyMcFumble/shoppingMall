@@ -25,21 +25,8 @@ namespace shoppingMall
         DataSet ds1;
 
 
-        public StoreOverview(double capital, double rating)
-        {
-           
-           
-           
-            Menu menu = new Menu();
-            menu.setRating(rating);
-            menu.setCapital(capital);
-            FlowLayoutPanel menuFlowLayoutPanel = menu.createMenu();
-            menu.EditButtonClicked += EditButton_Click;
-            //displayData(menuFlowLayoutPanel);
-            
 
-        }
-            public StoreOverview()
+        public StoreOverview()
         {
 
 
@@ -47,17 +34,20 @@ namespace shoppingMall
             Menu menu = new Menu();
             List<Shop> list = menu.listShop();
             FlowLayoutPanel menuFlowLayoutPanel = menu.createMenu();
-
+            //menu.EditButtonClicked += EditButton_Click;
             panel.Controls.Add(menuFlowLayoutPanel);
             createPanels(list);
 
         }
 
-       
+
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-           
+            MessageBox.Show("hallo");
+            Add add = new Add();
+            this.Hide();
+            add.ShowDialog();
         }
 
 
@@ -93,7 +83,7 @@ namespace shoppingMall
 }
         */
 
-private void StoreOverview_Load(object sender, EventArgs e)
+        private void StoreOverview_Load(object sender, EventArgs e)
         {
 
         }
@@ -128,6 +118,18 @@ private void StoreOverview_Load(object sender, EventArgs e)
         }
 
         private void formPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            Add add = new Add();
+            this.Hide();
+            add.ShowDialog();
+        }
+
+        private void formPanel_Paint_1(object sender, PaintEventArgs e)
         {
 
         }
