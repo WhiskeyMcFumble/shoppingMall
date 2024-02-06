@@ -43,10 +43,11 @@
             // 
             flowPanel.Controls.Add(panel1);
             flowPanel.Controls.Add(panel2);
-            flowPanel.Location = new Point(154, 140);
+            flowPanel.Location = new Point(98, 202);
             flowPanel.Name = "flowPanel";
-            flowPanel.Size = new Size(621, 253);
+            flowPanel.Size = new Size(636, 253);
             flowPanel.TabIndex = 0;
+            flowPanel.Paint += flowPanel_Paint;
             // 
             // panel1
             // 
@@ -54,7 +55,7 @@
             panel1.Controls.Add(store_button);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(295, 192);
+            panel1.Size = new Size(314, 192);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -72,10 +73,12 @@
             // 
             panel2.BackColor = Color.LavenderBlush;
             panel2.Controls.Add(workers_button);
-            panel2.Location = new Point(304, 3);
+            panel2.Location = new Point(323, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(295, 192);
+            panel2.Padding = new Padding(1000, 100, 100, 100);
+            panel2.Size = new Size(303, 192);
             panel2.TabIndex = 1;
+            panel2.Paint += panel2_Paint;
             // 
             // workers_button
             // 
@@ -89,9 +92,9 @@
             // 
             // panel
             // 
-            panel.Location = new Point(30, 23);
+            panel.Location = new Point(98, 60);
             panel.Name = "panel";
-            panel.Size = new Size(917, 69);
+            panel.Size = new Size(636, 69);
             panel.TabIndex = 1;
             panel.Paint += panel_Paint;
             // 
@@ -99,13 +102,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Crimson;
-            ClientSize = new Size(990, 486);
+            BackColor = Color.YellowGreen;
+            ClientSize = new Size(847, 564);
             Controls.Add(panel);
             Controls.Add(flowPanel);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += Form1_Load_1;
             flowPanel.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);

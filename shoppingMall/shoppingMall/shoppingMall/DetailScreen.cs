@@ -9,16 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using YourNamespace;
 
 namespace shoppingMall
 {
 
-    public partial class DetailScreen : Form
+    public partial class DetailScreen : BaseForm
     {
-       
-        public IBackButton backButtonManager;
+
+
 
         public bool isShopDetail;
+
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Eveline\\source\\repos\\shoppingMall2\\shoppingMall\\shoppingMall\\shoppingMall\\Database1.mdf;Integrated Security=True");
         SqlCommand cmd;
         DataTable dt;
@@ -32,26 +34,21 @@ namespace shoppingMall
 
         public DetailScreen(Shop shop)
         {
+
             InitializeComponent();
             detail_name.Text = shop.GetName();
             size.Text = shop.GetSize().ToString();
             category.Text = shop.GetCategory();
             rating.Text = shop.GetRating().ToString();
             capital.Text = shop.GetCapital().ToString();
-
+            saveButton.Visible = false;
             isShopDetail = true;
-
+            saveButton.Visible = false;
+            startMode();
 
 
         }
-        public void SetBackButtonManager(IBackButton backButtonManager)
-        {
-            this.backButtonManager = backButtonManager;
-        }
-        private void backButton_Click(object sender, EventArgs e)
-        {
-           // FormNavigationManager.GoBack(this);
-        }
+
 
         public DetailScreen(Worker worker)
         {
@@ -67,6 +64,37 @@ namespace shoppingMall
             category.Text = worker.GetRating().ToString();
             rating.Text = worker.GetWeekHours().ToString();
             capital.Text = worker.GetAge().ToString();
+            startMode();
+
+        }
+
+        public void startMode()
+        {
+            if (!isShopDetail)
+            {
+                editButton.Visible = false;
+            }
+            saveButton.Visible = false;
+            sizeTextBox.Visible = false;
+            sizeTextBox.PlaceholderText = size.Text;
+            categoryTextBox.PlaceholderText = category.Text;
+            ratingTextBox.PlaceholderText = rating.Text;
+            capitalTextBox.PlaceholderText = capital.Text;
+            categoryTextBox.Visible = false;
+            ratingTextBox.Visible = false;
+            capitalTextBox.Visible = false;
+
+        }
+
+
+        public void editMode()
+        {
+            saveButton.Visible = true;
+            sizeTextBox.Visible = true;
+            categoryTextBox.Visible = true;
+            ratingTextBox.Visible = true;
+            capitalTextBox.Visible = true;
+
         }
 
         private void name_store_Click(object sender, EventArgs e)
@@ -89,7 +117,7 @@ namespace shoppingMall
                 {
                     double capitalNumber = Convert.ToDouble(capital.Text);
                     double ratingNumber = Convert.ToDouble(rating.Text);
-                    Menu menu = new Menu(); 
+                    Menu menu = new Menu();
                     menu.setCapital(capitalNumber);
                     menu.setRating(ratingNumber);
                     command.ExecuteNonQuery();
@@ -116,10 +144,49 @@ namespace shoppingMall
 
         private void backButton_Click_1(object sender, EventArgs e)
         {
+            this.Hide();
 
-            Form previousForm = FormNavigationManager.GetPreviousForm(); 
-            previousForm.Show(); 
-            this.Close();
+
+            if (isShopDetail)
+            {
+                StoreOverview store = new StoreOverview();
+                store.ShowDialog();
+            }
+
+            else
+            {
+                WorkersPage store = new WorkersPage();
+                store.ShowDialog();
+            }
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            editMode();
+
+
+
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            if (isShopDetail)
+            {
+                con.Open();
+                using (SqlCommand command = new SqlCommand("UPDATE Shop SET category = @Category, rating = @Rating, size = @Size, capital = @Capital WHERE name = @Name", con))
+                {
+                    command.Parameters.AddWithValue("@Size", float.Parse(sizeTextBox.Text));
+                    command.Parameters.AddWithValue("@Category", categoryTextBox.Text);
+                    command.Parameters.AddWithValue("@Rating", Convert.ToDouble(ratingTextBox.Text));
+                    command.Parameters.AddWithValue("@Capital", Convert.ToDouble(capital.Text));
+                    command.Parameters.AddWithValue("@Name", detail_name.Text);
+
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Gespeichert");
+                }
+            }
         }
     }
 }
+
+

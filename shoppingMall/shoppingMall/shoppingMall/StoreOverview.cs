@@ -9,10 +9,11 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YourNamespace;
 
 namespace shoppingMall
 {
-    public partial class StoreOverview : Form, IPanelCreator
+    public partial class StoreOverview : BaseForm
     {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Eveline\\source\\repos\\shoppingMall2\\shoppingMall\\shoppingMall\\shoppingMall\\Database1.mdf;Integrated Security=True");
         SqlCommand cmd;
@@ -24,17 +25,20 @@ namespace shoppingMall
         SqlDataAdapter adapter1;
         DataSet ds1;
 
-
+        
 
         public StoreOverview()
         {
 
 
             InitializeComponent();
+            
             Menu menu = new Menu();
             List<Shop> list = menu.listShop();
+            menu.BackButtonClicked += BackButton_Click;
+
             FlowLayoutPanel menuFlowLayoutPanel = menu.createMenu();
-            //menu.EditButtonClicked += EditButton_Click;
+
             panel.Controls.Add(menuFlowLayoutPanel);
             createPanels(list);
 
@@ -44,11 +48,21 @@ namespace shoppingMall
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("hallo");
+
             Add add = new Add();
             this.Hide();
             add.ShowDialog();
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 form = new Form1();
+            form.ShowDialog();
+
+
+        }
+
 
 
         private void createPanels(List<Shop> list)
@@ -57,8 +71,11 @@ namespace shoppingMall
 
             {
                 Panel panelStore = new Panel();
+                panelStore.BackColor = Color.White;
                 panelStore.Size = new System.Drawing.Size(200, 150);
                 Button button = new Button();
+                button.Size = new System.Drawing.Size(100, 100);
+                button.Location = new Point((panelStore.Width - button.Width) / 2, (panelStore.Height - button.Height) / 2);
                 button.Text = shop.GetName();
                 button.Size = new System.Drawing.Size(100, 100);
                 button.Click += (sender, e) => openPage(shop, sender, e);
@@ -66,22 +83,7 @@ namespace shoppingMall
                 formPanel.Controls.Add(panelStore);
             }
         }
-        /*
-        public void CreatePanels<T>(List<T> items, Panel formPanel) where T : INameable
-        {
-            foreach (T item in items)
-            {
-                Panel panelItem = new Panel();
-                panelItem.Size = new System.Drawing.Size(200, 150);
-                Button button = new Button();
-                button.Text = item.GetName();
-                button.Size = new System.Drawing.Size(100, 100);
-                button.Click += (sender, e) => openPage(item, sender, e);
-                panelItem.Controls.Add(button);
-                formPanel.Controls.Add(panelItem);
-            }
-}
-        */
+
 
         private void StoreOverview_Load(object sender, EventArgs e)
         {
@@ -130,6 +132,11 @@ namespace shoppingMall
         }
 
         private void formPanel_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel_Paint(object sender, PaintEventArgs e)
         {
 
         }

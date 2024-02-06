@@ -2,10 +2,11 @@ using System.Data;
 using System.Drawing;
 using System.Data;
 using System.Data.SqlClient;
+using YourNamespace;
 
 namespace shoppingMall
 {
-    public partial class Form1 : Form
+    public partial class Form1 : BaseForm
     {
 
 
@@ -17,15 +18,22 @@ namespace shoppingMall
         {
             InitializeComponent();
             Menu menu = new Menu();
-
-
+          
+            menu.BackButtonClicked += BackButton_Click;
+            FormNavigationManager.SetPreviousForm(this);
             FlowLayoutPanel menuFlowLayoutPanel = menu.createMenu();
+
 
             panel.Controls.Add(menuFlowLayoutPanel);
 
-
-
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormNavigationManager.NavigateBack();
+        }
+
 
 
         private void workerPanel_Paint(object sender, PaintEventArgs e)
@@ -59,6 +67,21 @@ namespace shoppingMall
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
         {
 
         }

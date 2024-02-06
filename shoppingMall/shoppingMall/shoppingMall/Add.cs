@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YourNamespace;
 
 namespace shoppingMall
 {
-    public partial class Add : Form
+    public partial class Add : BaseForm
     {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Eveline\\source\\repos\\shoppingMall2\\shoppingMall\\shoppingMall\\shoppingMall\\Database1.mdf;Integrated Security=True");
         SqlCommand cmd;
@@ -34,12 +35,12 @@ namespace shoppingMall
 
         }
 
-        
+
         private void addButton_Click(object sender, EventArgs e)
         {
 
             object result = 0;
-            using (SqlCommand command2 = new SqlCommand("SELECT MAX(id) FROM Shop", con)) 
+            using (SqlCommand command2 = new SqlCommand("SELECT MAX(id) FROM Shop", con))
             {
                 con.Open();
                 result = command2.ExecuteScalar();
@@ -47,7 +48,7 @@ namespace shoppingMall
 
             }
 
-                if (name.Text != "" && category.Text != "" && rating.Text != "" && capital.Text != "")
+            if (name.Text != "" && category.Text != "" && rating.Text != "" && capital.Text != "")
             {
                 using (SqlCommand command = new SqlCommand("INSERT INTO Shop (id, name, category, size, status, rating, capital, avgVisitorCount, avgVisitorRevenue) VALUES ( @id ,@Name, @Category,@size, @status, @Rating, @Capital, @avgVisitorCount, @avgVisitorRevenue)", con))
                 {
@@ -98,6 +99,18 @@ namespace shoppingMall
             {
                 MessageBox.Show("Bitte füllen Sie alle Felder aus.");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            StoreOverview storeOverview = new StoreOverview();
+            this.Hide();
+            storeOverview.Show();
         }
     }
 }

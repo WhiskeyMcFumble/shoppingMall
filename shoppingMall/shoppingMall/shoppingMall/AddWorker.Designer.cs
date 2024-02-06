@@ -41,11 +41,12 @@
             weekhours_label = new Label();
             position = new TextBox();
             position_label = new Label();
+            backButton = new Button();
             SuspendLayout();
             // 
             // addButton
             // 
-            addButton.Location = new Point(563, 180);
+            addButton.Location = new Point(563, 211);
             addButton.Name = "addButton";
             addButton.Size = new Size(94, 29);
             addButton.TabIndex = 17;
@@ -149,11 +150,22 @@
             position_label.TabIndex = 20;
             position_label.Text = "Position";
             // 
+            // backButton
+            // 
+            backButton.Location = new Point(563, 145);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(94, 29);
+            backButton.TabIndex = 22;
+            backButton.Text = "zurück";
+            backButton.UseVisualStyleBackColor = true;
+            backButton.Click += backButton_Click;
+            // 
             // AddWorker
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(backButton);
             Controls.Add(position);
             Controls.Add(position_label);
             Controls.Add(workhours);
@@ -189,5 +201,6 @@
         private Label weekhours_label;
         private TextBox position;
         private Label position_label;
+        private Button backButton;
     }
 }

@@ -9,10 +9,11 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YourNamespace;
 
 namespace shoppingMall
 {
-    public partial class WorkersPage : Form
+    public partial class WorkersPage : BaseForm
     {
 
 
@@ -23,28 +24,40 @@ namespace shoppingMall
             Menu menu = new Menu();
             List<Worker> list = menu.listWorkers();
             FlowLayoutPanel menuFlowLayoutPanel = menu.createMenu();
-
+            menu.BackButtonClicked += BackButton_Click;
             panel.Controls.Add(menuFlowLayoutPanel);
             createPanels(list);
+
+        }
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 form = new Form1();
+            form.ShowDialog();
 
 
         }
 
+   
         private void createPanels(List<Worker> list)
         {
             foreach (Worker worker in list)
 
+
             {
                 Panel panelStore = new Panel();
+                panelStore.BackColor = Color.White;
                 panelStore.Size = new System.Drawing.Size(200, 150);
                 Button button = new Button();
+                button.Size = new System.Drawing.Size(100, 50);
+                button.Location = new Point((panelStore.Width - button.Width) / 2, (panelStore.Height - button.Height) / 2);
                 button.Text = worker.GetName();
-                button.Size = new System.Drawing.Size(100, 100);
                 button.Click += (sender, e) => openPage(worker, sender, e);
                 panelStore.Controls.Add(button);
                 panelWorkers.Controls.Add(panelStore);
             }
         }
+
         internal void openPage(Worker worker, object sender, EventArgs e)
         {
             FormNavigationManager.SetPreviousForm(this);

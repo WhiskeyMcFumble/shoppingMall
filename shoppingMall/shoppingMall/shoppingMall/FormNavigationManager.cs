@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace shoppingMall
 {
-    public static class FormNavigationManager
+    public class FormNavigationManager
     {
         private static Form previousForm;
 
@@ -15,10 +15,16 @@ namespace shoppingMall
             previousForm = form;
         }
 
-        public static Form GetPreviousForm()
+        public static void NavigateBack()
         {
-            return previousForm;
+            if (previousForm != null)
+            {
+                previousForm.Show();
+                previousForm = null; 
+            }
         }
-
     }
+
+
+
 }

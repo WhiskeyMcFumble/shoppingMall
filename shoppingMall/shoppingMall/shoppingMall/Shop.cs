@@ -28,17 +28,5 @@ namespace shoppingMall
         public abstract decimal GetCapital();
         public abstract double GetRating();
 
-        /*       public Shop(string name, double size, string category, double averageVisitorRevenue, bool status, double capital, int rating, int averageVisitorCount)
-               {
-                   this.name = name;
-                   this.size = size;
-                   this.category = category;
-                   this.averageVisitorCount = averageVisitorCount;
-                   this.status = status;
-                   this.capital = capital;
-                   this.rating = rating;
-                   this.averageVisitorCount = averageVisitorCount;
-               }
-       */
     }
 }

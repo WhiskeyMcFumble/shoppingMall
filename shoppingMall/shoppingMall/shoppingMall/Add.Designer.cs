@@ -37,12 +37,13 @@
             capital = new TextBox();
             rating = new TextBox();
             addButton = new Button();
+            backButton = new Button();
             SuspendLayout();
             // 
             // name_label
             // 
             name_label.AutoSize = true;
-            name_label.Location = new Point(50, 110);
+            name_label.Location = new Point(50, 109);
             name_label.Name = "name_label";
             name_label.Size = new Size(49, 20);
             name_label.TabIndex = 0;
@@ -60,7 +61,7 @@
             // capital_label
             // 
             capital_label.AutoSize = true;
-            capital_label.Location = new Point(50, 234);
+            capital_label.Location = new Point(50, 235);
             capital_label.Name = "capital_label";
             capital_label.Size = new Size(56, 20);
             capital_label.TabIndex = 2;
@@ -77,7 +78,7 @@
             // 
             // name
             // 
-            name.Location = new Point(235, 110);
+            name.Location = new Point(235, 109);
             name.Name = "name";
             name.Size = new Size(125, 27);
             name.TabIndex = 4;
@@ -91,7 +92,7 @@
             // 
             // capital
             // 
-            capital.Location = new Point(235, 234);
+            capital.Location = new Point(235, 235);
             capital.Name = "capital";
             capital.Size = new Size(125, 27);
             capital.TabIndex = 6;
@@ -105,7 +106,7 @@
             // 
             // addButton
             // 
-            addButton.Location = new Point(540, 173);
+            addButton.Location = new Point(548, 138);
             addButton.Name = "addButton";
             addButton.Size = new Size(94, 29);
             addButton.TabIndex = 8;
@@ -113,11 +114,22 @@
             addButton.UseVisualStyleBackColor = true;
             addButton.Click += addButton_Click;
             // 
+            // backButton
+            // 
+            backButton.Location = new Point(52, 33);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(94, 29);
+            backButton.TabIndex = 9;
+            backButton.Text = "zurück";
+            backButton.UseVisualStyleBackColor = true;
+            backButton.Click += backButton_Click;
+            // 
             // Add
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 451);
+            Controls.Add(backButton);
             Controls.Add(addButton);
             Controls.Add(rating);
             Controls.Add(capital);
@@ -145,5 +157,6 @@
         private TextBox capital;
         private TextBox rating;
         private Button addButton;
+        private Button backButton;
     }
 }

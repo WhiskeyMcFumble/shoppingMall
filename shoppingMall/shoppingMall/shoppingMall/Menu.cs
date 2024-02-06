@@ -156,7 +156,7 @@ namespace shoppingMall
         protected double rating;
        
         FlowLayoutPanel flowPannel = new FlowLayoutPanel();
-        public event EventHandler EditButtonClicked;
+        public event EventHandler BackButtonClicked;
 
         public double getRating()
         {
@@ -180,27 +180,35 @@ namespace shoppingMall
         {
 
             flowPannel.Size = new System.Drawing.Size(700, 32);
+            
             Label capitalLabel = new Label();
             Label capitalName = new Label();
             Label ratingName = new Label();
+
             capitalName.Text = "Kapital:";
             ratingName.Text = "Rating:";
             capitalLabel.Text = calculateTotalCapital(listShop(), listWorkers()).ToString();
             Label ratingLabel = new Label();
             ratingLabel.Text = calculateTotalRating(listShop(), listWorkers()).ToString();
-           // Button editButton = new Button();
-            //editButton.Text = "Add";
-            //editButton.Click += EditButton_Click;
-            
-
-
+            Button backButton = new Button();
+            backButton.Text = "Back";
+            backButton.Click += BackButton_Click;
 
             flowPannel.Controls.Add(capitalName);
             flowPannel.Controls.Add(capitalLabel);
             flowPannel.Controls.Add(ratingName);
             flowPannel.Controls.Add(ratingLabel);
-           // flowPannel.Controls.Add(editButton);
+            flowPannel.Controls.Add(backButton);
             return flowPannel;
+        }
+
+        public void BackButton_Click(object sender, EventArgs e)
+
+        {
+            BackButtonClicked?.Invoke(this, EventArgs.Empty);
+            FormNavigationManager.NavigateBack();
+           
+
         }
 
 
@@ -276,11 +284,14 @@ namespace shoppingMall
             foreach (Worker worker in listWorkers)
 
             {
+
                 total += worker.GetRating();
 
             }
 
+          
             total = total / listWorkers.Count();
+         
             double result = (shopCapital + total) / 2;
            
             return Math.Round(result, 2); ;

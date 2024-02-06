@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YourNamespace;
 
 namespace shoppingMall
 {
-    public partial class AddWorker : Form
+    public partial class AddWorker : BaseForm
     {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Eveline\\source\\repos\\shoppingMall2\\shoppingMall\\shoppingMall\\shoppingMall\\Database1.mdf;Integrated Security=True");
         SqlCommand cmd;
@@ -35,7 +36,7 @@ namespace shoppingMall
         private void addButton_Click(object sender, EventArgs e)
         {
             object result = 0;
-            using (SqlCommand command2 = new SqlCommand("SELECT MAX(id) FROM Shop", con))
+            using (SqlCommand command2 = new SqlCommand("SELECT MAX(id) FROM Worker", con))
             {
                 con.Open();
                 result = command2.ExecuteScalar();
@@ -52,10 +53,10 @@ namespace shoppingMall
                 {
                     command.Parameters.AddWithValue("@id", resulte);
                     command.Parameters.AddWithValue("@Name", name.Text);
-                    command.Parameters.AddWithValue("@age", Convert.ToInt32(age.Text)); // Assuming 'age' is a TextBox for age input
+                    command.Parameters.AddWithValue("@age", Convert.ToInt32(age.Text));
                     command.Parameters.AddWithValue("@socialSecurityNumber", 2345 + resulte);
                     command.Parameters.AddWithValue("@workField", field.Text);
-                    command.Parameters.AddWithValue("@weekHours", Convert.ToInt32(workhours.Text)); // Assuming 'workhours' is a TextBox for work hours input
+                    command.Parameters.AddWithValue("@weekHours", Convert.ToInt32(workhours.Text));
                     command.Parameters.AddWithValue("@position", position.Text);
                     command.Parameters.AddWithValue("@rating", Convert.ToDouble(rating.Text));
 
@@ -66,13 +67,20 @@ namespace shoppingMall
 
                 MessageBox.Show("Gespeichert");
                 this.Hide();
-                StoreOverview storeOverview = new StoreOverview();
-                storeOverview.Show();
+                WorkersPage workersOverview = new WorkersPage();
+                workersOverview.Show();
             }
             else
             {
                 MessageBox.Show("Bitte füllen Sie alle Felder aus.");
             }
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            WorkersPage worker = new WorkersPage();
+            this.Hide();
+            worker.Show();
         }
     }
 

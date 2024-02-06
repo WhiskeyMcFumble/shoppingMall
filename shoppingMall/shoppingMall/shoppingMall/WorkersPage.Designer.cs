@@ -35,26 +35,27 @@
             // 
             // panel
             // 
-            panel.Location = new Point(35, 43);
-            panel.Margin = new Padding(3, 4, 3, 4);
+            panel.Location = new Point(40, 55);
             panel.Name = "panel";
-            panel.Size = new Size(687, 109);
+            panel.Size = new Size(504, 82);
             panel.TabIndex = 0;
             panel.Paint += panel_Paint;
             // 
             // panelWorkers
             // 
-            panelWorkers.Location = new Point(46, 202);
+            panelWorkers.Location = new Point(40, 197);
+            panelWorkers.Margin = new Padding(3, 2, 3, 2);
             panelWorkers.Name = "panelWorkers";
-            panelWorkers.Size = new Size(829, 294);
+            panelWorkers.Size = new Size(592, 220);
             panelWorkers.TabIndex = 1;
             panelWorkers.Paint += flowLayoutPanel1_Paint;
             // 
             // add
             // 
-            add.Location = new Point(785, 58);
+            add.Location = new Point(550, 55);
+            add.Margin = new Padding(3, 2, 3, 2);
             add.Name = "add";
-            add.Size = new Size(94, 29);
+            add.Size = new Size(82, 22);
             add.TabIndex = 2;
             add.Text = "Add";
             add.UseVisualStyleBackColor = true;
@@ -62,13 +63,12 @@
             // 
             // WorkersPage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 574);
             Controls.Add(add);
             Controls.Add(panelWorkers);
             Controls.Add(panel);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "WorkersPage";
             Text = "WorkersPage";
             Load += WorkersPage_Load;

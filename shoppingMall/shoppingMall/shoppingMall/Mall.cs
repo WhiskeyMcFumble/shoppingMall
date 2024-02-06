@@ -33,17 +33,7 @@ namespace shoppingMall
             this.rating = rating;
         }
 
-        public double calculateCapital(double capital, double rentAmount, int shopCount, double shopRevenueTotal, double eventIncome, double workerPayment)
-        {
-            capital += capital + (rentAmount * shopCount) + shopRevenueTotal - workerPayment;
-            return capital;
-        }
-                                                                                 
-        public double calculateMonthlyIncome(double rentAmount, int shopCount, double shopRevenueTotal, double eventIncome, double workerPayment)
-        {
-            result = (rentAmount * shopCount) + shopRevenueTotal  - workerPayment;
-            return result;
-        }
+       
 
     }
 }

@@ -39,6 +39,12 @@
             rating = new Label();
             delete_button = new Button();
             backButton = new Button();
+            editButton = new Button();
+            saveButton = new Button();
+            sizeTextBox = new TextBox();
+            categoryTextBox = new TextBox();
+            capitalTextBox = new TextBox();
+            ratingTextBox = new TextBox();
             SuspendLayout();
             // 
             // detail_name
@@ -134,7 +140,7 @@
             delete_button.Name = "delete_button";
             delete_button.Size = new Size(94, 29);
             delete_button.TabIndex = 11;
-            delete_button.Text = "Delete";
+            delete_button.Text = "Löschen";
             delete_button.UseVisualStyleBackColor = true;
             delete_button.Click += delete_button_Click;
             // 
@@ -148,12 +154,66 @@
             backButton.UseVisualStyleBackColor = true;
             backButton.Click += backButton_Click_1;
             // 
+            // editButton
+            // 
+            editButton.Location = new Point(796, 57);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(94, 29);
+            editButton.TabIndex = 13;
+            editButton.Text = "Bearbeiten";
+            editButton.UseVisualStyleBackColor = true;
+            editButton.Click += editButton_Click;
+            // 
+            // saveButton
+            // 
+            saveButton.Location = new Point(797, 109);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(94, 29);
+            saveButton.TabIndex = 14;
+            saveButton.Text = "Speichern";
+            saveButton.UseVisualStyleBackColor = true;
+            saveButton.Click += save_Click;
+            // 
+            // sizeTextBox
+            // 
+            sizeTextBox.Location = new Point(246, 214);
+            sizeTextBox.Name = "sizeTextBox";
+            sizeTextBox.Size = new Size(125, 27);
+            sizeTextBox.TabIndex = 15;
+            // 
+            // categoryTextBox
+            // 
+            categoryTextBox.Location = new Point(246, 265);
+            categoryTextBox.Name = "categoryTextBox";
+            categoryTextBox.Size = new Size(125, 27);
+            categoryTextBox.TabIndex = 16;
+            // 
+            // capitalTextBox
+            // 
+            capitalTextBox.Location = new Point(246, 333);
+            capitalTextBox.Name = "capitalTextBox";
+            capitalTextBox.Size = new Size(125, 27);
+            capitalTextBox.TabIndex = 17;
+            // 
+            // ratingTextBox
+            // 
+            ratingTextBox.Location = new Point(246, 393);
+            ratingTextBox.Name = "ratingTextBox";
+            ratingTextBox.Size = new Size(125, 27);
+            ratingTextBox.TabIndex = 18;
+            // 
             // DetailScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Lavender;
+            BackColor = Color.YellowGreen;
             ClientSize = new Size(1193, 762);
+            Controls.Add(ratingTextBox);
+            Controls.Add(capitalTextBox);
+            Controls.Add(categoryTextBox);
+            Controls.Add(sizeTextBox);
+            Controls.Add(saveButton);
+            Controls.Add(editButton);
             Controls.Add(backButton);
             Controls.Add(delete_button);
             Controls.Add(rating);
@@ -188,5 +248,11 @@
         private Label rating;
         private Button delete_button;
         private Button backButton;
+        private Button editButton;
+        private Button saveButton;
+        private TextBox sizeTextBox;
+        private TextBox categoryTextBox;
+        private TextBox capitalTextBox;
+        private TextBox ratingTextBox;
     }
 }
