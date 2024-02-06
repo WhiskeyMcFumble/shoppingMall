@@ -16,33 +16,19 @@ namespace shoppingMall
     {
 
       
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Eveline\\source\\repos\\shoppingMall2\\shoppingMall\\shoppingMall\\shoppingMall\\Database1.mdf;Integrated Security=True");
-        SqlCommand cmd;
-        DataTable dt2;
-        SqlDataAdapter adapter;
-        DataSet ds;
-    
+       
         public WorkersPage()
         {
             InitializeComponent();
-           
-            List<Worker> listWorker = new List<Worker>();
-            con.Open();
-            cmd = new SqlCommand("select * from Worker", con);
-            adapter = new SqlDataAdapter(cmd);
-            ds = new DataSet();
-            adapter.Fill(ds, "testTable");
-            con.Close();
-            dt2 = ds.Tables["testTable"];
 
-            
 
-            for (int i = 0; i < dt2.Rows.Count; i++)
-            {
-                listWorker.Add(new Worker(dt2.Rows[i]["name"].ToString(), (int)dt2.Rows[i]["age"], dt2.Rows[i]["socialSecurityNumber"].ToString(), dt2.Rows[i]["workField"].ToString(), (int)dt2.Rows[i]["weekHours"], dt2.Rows[i]["position"].ToString(), (double)dt2.Rows[i]["rating"]));
-            }
+         
+            Menu menu = new Menu();
+            List<Worker> list = menu.listWorkers();
+            FlowLayoutPanel menuFlowLayoutPanel = menu.createMenu();
 
-            createPanels(listWorker);
+            panel.Controls.Add(menuFlowLayoutPanel);
+            createPanels(list);
 
 
         }
@@ -72,8 +58,7 @@ namespace shoppingMall
 
         private void WorkersPage_Load(object sender, EventArgs e)
         {
-            Menu menu = new Menu();
-            panel.Controls.Add(menu.createMenu());
+           
         }
 
         private void panel_Paint(object sender, PaintEventArgs e)

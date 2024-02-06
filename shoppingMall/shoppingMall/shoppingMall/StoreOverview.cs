@@ -23,118 +23,41 @@ namespace shoppingMall
         DataTable dt1;
         SqlDataAdapter adapter1;
         DataSet ds1;
-        public StoreOverview()
+
+
+        public StoreOverview(double capital, double rating)
         {
-            List<Shop> list = new List<Shop>();
+           
+           
+           
+            Menu menu = new Menu();
+            menu.setRating(rating);
+            menu.setCapital(capital);
+            FlowLayoutPanel menuFlowLayoutPanel = menu.createMenu();
+            menu.EditButtonClicked += EditButton_Click;
+            //displayData(menuFlowLayoutPanel);
+            
 
-
-            con.Open();
-            cmd = new SqlCommand("select * from Shop", con);
-            adapter = new SqlDataAdapter(cmd);
-            ds = new DataSet();
-            adapter.Fill(ds, "testTable");
-            con.Close();
-            dt = ds.Tables["testTable"];
-
-            con.Open();
-            cmd1 = new SqlCommand("select * from Restaurant", con);
-            adapter1 = new SqlDataAdapter(cmd);
-            ds1 = new DataSet();
-            adapter1.Fill(ds1, "testTable1");
-            con.Close();
-            dt1 = ds1.Tables["testTable1"];
-
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                if (dt.Rows[i]["category"].ToString() == "Techstore")
-                {
-                    if (dt.Rows[i]["status"].ToString() == "true")
-                    {
-                        list.Add(new Techstore(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], true, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"]));
-                    }
-                    else
-                    {
-                        list.Add(new Techstore(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], false, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"]));
-
-                    }
-                }
-                else if (dt.Rows[i]["category"].ToString() == "Drugstore")
-                {
-                    if (dt.Rows[i]["status"].ToString() == "true")
-                    {
-                        list.Add(new Drugstore(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], true, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"]));
-                    }
-                    else
-                    {
-                        list.Add(new Drugstore(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], false, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"]));
-
-                    }
-                }
-                else if (dt.Rows[i]["category"].ToString() == "Clothstore")
-                {
-                    if (dt.Rows[i]["status"].ToString() == "true")
-                    {
-                        list.Add(new Clothstore(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], true, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"]));
-                    }
-                    else
-                    {
-                        list.Add(new Clothstore(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], false, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"]));
-
-                    }
-                }
-                else if (dt.Rows[i]["category"].ToString() == "Restaurant")
-                {
-                    for (int j = 0; j < dt1.Rows.Count; j++)
-                    {
-                        if (dt1.Rows[j]["shopId"] == dt.Rows[i]["Id"])
-                        {
-                            if (dt1.Rows[j]["healthInspection"].ToString() == "true")
-                            {
-                                if (dt.Rows[i]["status"].ToString() == "true")
-                                {
-                                    list.Add(new Restaurant(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], true, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"], true, 5));
-                                    break;
-                                }
-                                else
-                                {
-                                    list.Add(new Restaurant(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], false, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"], true, 5));
-                                    break;
-                                }
-                            }
-                            else if (dt.Rows[j]["healthInspection"].ToString() == "false")
-                            {
-                                if (dt.Rows[i]["status"].ToString() == "true")
-                                {
-                                    list.Add(new Restaurant(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], true, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"], false, 5));
-                                    break;
-                                }
-                                else
-                                {
-                                    list.Add(new Restaurant(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], false, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"], false, 5));
-                                    break;
-                                }
-                            }
-                        }
-
-                    }
-                }
-            }
+        }
+            public StoreOverview()
+        {
 
 
             InitializeComponent();
             Menu menu = new Menu();
+            List<Shop> list = menu.listShop();
             FlowLayoutPanel menuFlowLayoutPanel = menu.createMenu();
-            menu.EditButtonClicked += EditButton_Click;
+
             panel.Controls.Add(menuFlowLayoutPanel);
             createPanels(list);
 
-  
         }
+
+       
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("hallo");
+           
         }
 
 

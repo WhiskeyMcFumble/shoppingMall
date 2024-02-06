@@ -81,16 +81,23 @@ namespace shoppingMall
 
         private void delete_button_Click(object sender, EventArgs e)
         {
+
             con.Open();
             if (isShopDetail)
             {
                 using (SqlCommand command = new SqlCommand("DELETE FROM Shop WHERE name = '" + detail_name.Text + "'", con))
                 {
+                    double capitalNumber = Convert.ToDouble(capital.Text);
+                    double ratingNumber = Convert.ToDouble(rating.Text);
+                    Menu menu = new Menu(); 
+                    menu.setCapital(capitalNumber);
+                    menu.setRating(ratingNumber);
                     command.ExecuteNonQuery();
                     con.Close();
                     this.Hide();
                     StoreOverview store = new StoreOverview();
                     store.ShowDialog();
+
                 }
             }
             else
