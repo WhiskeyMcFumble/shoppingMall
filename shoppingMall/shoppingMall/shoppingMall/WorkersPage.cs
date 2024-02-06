@@ -15,8 +15,8 @@ namespace shoppingMall
     public partial class WorkersPage : Form
     {
 
-      
-       
+
+
         public WorkersPage()
         {
             InitializeComponent();
@@ -55,7 +55,7 @@ namespace shoppingMall
 
         private void WorkersPage_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void panel_Paint(object sender, PaintEventArgs e)
@@ -66,6 +66,13 @@ namespace shoppingMall
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            AddWorker worker = new AddWorker();
+            this.Hide();
+            worker.ShowDialog();
         }
     }
 }

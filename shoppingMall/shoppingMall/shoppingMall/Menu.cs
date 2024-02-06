@@ -154,7 +154,7 @@ namespace shoppingMall
 
         protected double capital;
         protected double rating;
-        protected Button delete;
+       
         FlowLayoutPanel flowPannel = new FlowLayoutPanel();
         public event EventHandler EditButtonClicked;
 
@@ -225,7 +225,7 @@ namespace shoppingMall
                 result += rent + (0.2 * Convert.ToDouble(shop.GetCapital()));
 
             }
-            return result;
+            return Math.Round(result, 2); ;
            
            
         }
@@ -245,8 +245,9 @@ namespace shoppingMall
             }
 
             double result = shopCapital - total;
+            Math.Round(result, 2);
 
-            return result;
+            return Math.Round(result, 2); ;
         }
 
         public double calculateShopRating(List<Shop> list)
@@ -262,7 +263,8 @@ namespace shoppingMall
             }
 
             double result = ratingShops / count;
-            return result;
+           
+            return Math.Round(result, 2); ;
         }
 
         public double calculateTotalRating(List<Shop> listShops, List<Worker> listWorkers)
@@ -280,7 +282,8 @@ namespace shoppingMall
 
             total = total / listWorkers.Count();
             double result = (shopCapital + total) / 2;
-            return result;
+           
+            return Math.Round(result, 2); ;
         }
 
        

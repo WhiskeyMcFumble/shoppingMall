@@ -30,6 +30,7 @@
         {
             panel = new FlowLayoutPanel();
             panelWorkers = new FlowLayoutPanel();
+            add = new Button();
             SuspendLayout();
             // 
             // panel
@@ -37,7 +38,7 @@
             panel.Location = new Point(35, 43);
             panel.Margin = new Padding(3, 4, 3, 4);
             panel.Name = "panel";
-            panel.Size = new Size(840, 109);
+            panel.Size = new Size(687, 109);
             panel.TabIndex = 0;
             panel.Paint += panel_Paint;
             // 
@@ -49,11 +50,22 @@
             panelWorkers.TabIndex = 1;
             panelWorkers.Paint += flowLayoutPanel1_Paint;
             // 
+            // add
+            // 
+            add.Location = new Point(785, 58);
+            add.Name = "add";
+            add.Size = new Size(94, 29);
+            add.TabIndex = 2;
+            add.Text = "Add";
+            add.UseVisualStyleBackColor = true;
+            add.Click += add_Click;
+            // 
             // WorkersPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 600);
+            Controls.Add(add);
             Controls.Add(panelWorkers);
             Controls.Add(panel);
             Margin = new Padding(3, 4, 3, 4);
@@ -67,5 +79,6 @@
 
         private FlowLayoutPanel panel;
         private FlowLayoutPanel panelWorkers;
+        private Button add;
     }
 }
