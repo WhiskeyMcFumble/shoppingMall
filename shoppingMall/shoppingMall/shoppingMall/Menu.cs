@@ -25,6 +25,7 @@ namespace shoppingMall
         public List<Shop> listShop()
         {
             List<Shop> list = new List<Shop>();
+           
             con.Open();
             cmd = new SqlCommand("select * from Shop", con);
             adapter = new SqlDataAdapter(cmd);
@@ -35,7 +36,7 @@ namespace shoppingMall
 
             con.Open();
             cmd1 = new SqlCommand("select * from Restaurant", con);
-            adapter1 = new SqlDataAdapter(cmd);
+            adapter1 = new SqlDataAdapter(cmd1);
             ds1 = new DataSet();
             adapter1.Fill(ds1, "testTable1");
             con.Close();
@@ -82,41 +83,17 @@ namespace shoppingMall
                 }
                 else if (dt.Rows[i]["category"].ToString() == "Restaurant")
                 {
-                    for (int j = 0; j < dt1.Rows.Count; j++)
+                    if (dt.Rows[i]["status"].ToString() == "true")
                     {
-                        if (dt1.Rows[j]["shopId"] == dt.Rows[i]["Id"])
-                        {
-                            if (dt1.Rows[j]["healthInspection"].ToString() == "true")
-                            {
-                                if (dt.Rows[i]["status"].ToString() == "true")
-                                {
-                                    list.Add(new Restaurant(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], true, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"], true, 5));
-                                    break;
-                                }
-                                else
-                                {
-                                    list.Add(new Restaurant(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], false, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"], true, 5));
-                                    break;
-                                }
-                            }
-                            else if (dt.Rows[j]["healthInspection"].ToString() == "false")
-                            {
-                                if (dt.Rows[i]["status"].ToString() == "true")
-                                {
-                                    list.Add(new Restaurant(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], true, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"], false, 5));
-                                    break;
-                                }
-                                else
-                                {
-                                    list.Add(new Restaurant(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], false, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"], false, 5));
-                                    break;
-                                }
-                            }
-                        }
+                        list.Add(new Restaurant(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], true, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"]));
+                    }
+                    else
+                    {
+                        list.Add(new Restaurant(dt.Rows[i]["Name"].ToString(), (double)dt.Rows[i]["size"], dt.Rows[i]["Category"].ToString(), (double)dt.Rows[i]["avgVisitorRevenue"], false, (decimal)dt.Rows[i]["Capital"], (double)dt.Rows[i]["Rating"], (double)dt.Rows[i]["avgVisitorCount"]));
 
                     }
-                   
                 }
+
             }
              return list;
         }

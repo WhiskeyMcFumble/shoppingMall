@@ -36,10 +36,9 @@ namespace shoppingMall
             return rating;
         }
 
-        protected bool healthInspection { get; set; }
-        protected int stars { get; set; }
+       
 
-        public Restaurant(string name, double size, string category, double averageVisitorRevenue, bool status, decimal capital, double rating, double averageVisitorCount, bool healthInspection, int stars)
+        public Restaurant(string name, double size, string category, double averageVisitorRevenue, bool status, decimal capital, double rating, double averageVisitorCount)
         {
             this.name = name;
             this.size = size;
@@ -49,8 +48,7 @@ namespace shoppingMall
             this.capital = capital;
             this.rating = rating;
             this.averageVisitorCount = averageVisitorCount;
-            this.healthInspection = healthInspection;
-            this.stars = stars;
+           
         }
 
     }

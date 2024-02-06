@@ -35,10 +35,9 @@
             // 
             // addButton
             // 
-            addButton.Location = new Point(578, 69);
-            addButton.Margin = new Padding(3, 2, 3, 2);
+            addButton.Location = new Point(661, 92);
             addButton.Name = "addButton";
-            addButton.Size = new Size(82, 22);
+            addButton.Size = new Size(94, 29);
             addButton.TabIndex = 0;
             addButton.Text = "Add";
             addButton.UseVisualStyleBackColor = true;
@@ -46,34 +45,30 @@
             // 
             // panel
             // 
-            panel.Location = new Point(88, 69);
-            panel.Margin = new Padding(3, 2, 3, 2);
+            panel.Location = new Point(101, 92);
             panel.Name = "panel";
-            panel.Size = new Size(484, 94);
+            panel.Size = new Size(553, 125);
             panel.TabIndex = 1;
             panel.Paint += panel_Paint;
             // 
             // formPanel
             // 
-            formPanel.Location = new Point(88, 224);
-            formPanel.Margin = new Padding(3, 2, 3, 2);
+            formPanel.Location = new Point(101, 253);
             formPanel.Name = "formPanel";
-            formPanel.Size = new Size(610, 399);
+            formPanel.Size = new Size(816, 508);
             formPanel.TabIndex = 2;
             formPanel.Paint += formPanel_Paint_1;
             // 
             // StoreOverview
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.YellowGreen;
-            ClientSize = new Size(946, 580);
+            ClientSize = new Size(1081, 773);
             Controls.Add(formPanel);
             Controls.Add(panel);
             Controls.Add(addButton);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "StoreOverview";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "StoreOverview";
             Load += StoreOverview_Load;
             ResumeLayout(false);

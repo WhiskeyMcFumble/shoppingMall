@@ -25,14 +25,14 @@ namespace shoppingMall
         SqlDataAdapter adapter1;
         DataSet ds1;
 
-        
+
 
         public StoreOverview()
         {
 
 
             InitializeComponent();
-            
+
             Menu menu = new Menu();
             List<Shop> list = menu.listShop();
             menu.BackButtonClicked += BackButton_Click;
